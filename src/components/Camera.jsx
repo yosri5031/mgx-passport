@@ -1,12 +1,14 @@
 // src/components/Camera.jsx
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import Webcam from 'react-webcam';
-import { Camera as MediaPipeCamera } from '@mediapipe/camera_utils';
+// Remove the MediaPipe Camera import as it's causing the error
+// import { Camera as MediaPipeCamera } from '@mediapipe/camera_utils';
 import PhotoGuide from './PhotoGuide';
 import ValidationOverlay from './ValidationOverlay';
 import { detectFace } from '../utils/faceDetection';
 
-let mediaCamera = null;
+// Remove the mediaCamera variable since we won't be using MediaPipe directly
+// let mediaCamera = null;
 
 const Camera = ({ onPhotoCapture, country }) => {
   const webcamRef = useRef(null);
@@ -17,6 +19,9 @@ const Camera = ({ onPhotoCapture, country }) => {
     goodLighting: false,
     facePosition: null
   });
+
+  // Add a reference for the interval
+  const intervalRef = useRef(null);
 
   const videoConstraints = {
     facingMode: isFrontCamera ? 'user' : 'environment',
@@ -51,22 +56,17 @@ const Camera = ({ onPhotoCapture, country }) => {
     }
   };
 
-  // Initialize MediaPipe camera
+  // Replace MediaPipe Camera with a simple interval for face detection
   useEffect(() => {
-    if (webcamRef.current && webcamRef.current.video && !mediaCamera) {
-      mediaCamera = new MediaPipeCamera(webcamRef.current.video, {
-        onFrame: async () => {
-          await checkFacePosition();
-        },
-        width: 1280,
-        height: 720
-      });
-      mediaCamera.start();
+    if (webcamRef.current && webcamRef.current.video) {
+      // Set up an interval to check face position periodically
+      intervalRef.current = setInterval(checkFacePosition, 500); // Check every 500ms
     }
 
     return () => {
-      if (mediaCamera) {
-        mediaCamera.stop();
+      // Clean up interval on component unmount
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
     };
   }, [webcamRef.current]);
