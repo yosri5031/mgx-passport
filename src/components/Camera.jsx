@@ -1,8 +1,6 @@
 // src/components/Camera.jsx
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import Webcam from 'react-webcam';
-// Remove the MediaPipe Camera import as it's causing the error
-// import { Camera as MediaPipeCamera } from '@mediapipe/camera_utils';
 import PhotoGuide from './PhotoGuide';
 import ValidationOverlay from './ValidationOverlay';
 import { detectFace } from '../utils/faceDetection';
