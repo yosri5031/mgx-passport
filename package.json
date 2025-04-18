@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "npm run build && node server.js",
     "build": "vite build",
-    "preview": "vite preview",
-    "start": "vite preview --port $PORT"
+    "dev": "vite"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -19,6 +18,7 @@
     "@mui/material": "^6.0.2",
     "@supabase/supabase-js": "^2.47.12",
     "@types/prop-types": "^15.7.14",
+    "express": "^4.21.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -29,7 +29,7 @@
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.4.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
