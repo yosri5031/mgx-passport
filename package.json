@@ -2,11 +2,14 @@
   "name": "react-template",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node server.js",
     "build": "vite build",
     "dev": "vite"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
