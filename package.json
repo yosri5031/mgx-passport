@@ -4,10 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "vite": "vite",
+    "server": "nodemon server.cjs",
+    "dev": "concurrently \"npm:server\" \"npm:vite\"",
     "build": "vite build",
-    "lint": "eslint ./src --quiet",
-    "preview": "vite preview"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "start": "serve -s dist",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
