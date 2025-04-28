@@ -21,12 +21,20 @@
     "@mui/material": "^6.0.2",
     "@supabase/supabase-js": "^2.47.12",
     "@types/prop-types": "^15.7.14",
+    "axios": "^1.9.0",
     "express": "^4.21.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-webcam": "^7.2.0",
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "face-api.js": "^0.22.2",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
